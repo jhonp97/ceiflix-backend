@@ -1,4 +1,5 @@
 import express from "express"
+import 'dotenv/config';
 import cors from "cors"
 import { DOMAIN, PORT } from "./config/config.js"
 import { router } from "./routes/index.routes.js"
