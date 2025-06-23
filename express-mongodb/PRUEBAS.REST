@@ -1,22 +1,18 @@
-### 
-GET http://localhost:3003/api/v1/usuarios/68409678c8ce0f7dbfc02b95
+@domain=http://localhost:3001
+# info de TMB
+@apitoken=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZmIyZThiMmUwYjE1YWU0Zjg3MTg2NjVjYWVkY2FjZCIsIm5iZiI6MTc1MDcwMTM5MS4yNDQsInN1YiI6IjY4NTk5NTRmMzYxYjEzMzViMjBjY2MwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0IRmCUP93dK_JJ7r9vN7ZfC_RutLoXFEJfoCC_2cx04
+@apikey=0fb2e8b2e0b15ae4f8718665caedcacd
+@tmdbapi=https://api.themoviedb.org/3/
+@imgurl=https://image.tmdb.org/t/p/w500/
 
+### obtener pelis populares
+GET {{{tmdbapi}}}/movie/popular
+Authorization: Bearer {{apitoken}}
 
-###
-POST  http://localhost:3003/api/v1/usuarios/
-Content-Type: application/json
+### obtener pelis upcoming
+GET {{tmdbapi}}/movie/upcoming
+Authorization: Bearer {{apitoken}}
 
-{
-        "name": "Jhon",
-        "username": "Perez",
-        "email": "perezjhon2010@gmail.com"
-         }
-
-###
-PATCH  http://localhost:3003/api/v1/usuarios/6841ef371639a48814ff0201
-Content-Type: application/json
-
-{
-        
-        "email": "pfgdgjhone0@gmail.com"
-         }
+### obtener pelis top rated
+GET {{tmdbapi}}/movie/top_rated
+Authorization: Bearer {{apitoken}}
