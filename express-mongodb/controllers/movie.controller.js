@@ -1,4 +1,4 @@
-
+import { User } from "../db/models/user.js";
 import { WatchedMovie } from "../db/models/watchedMovie.js";
 
 // aquines para agregar las peliculas vistas
@@ -61,8 +61,7 @@ export const calificarPelicula = async (req, res, next) => {
   }
 };
 
-// Lista publica delusuario 
-import { User } from "../models/User.js";
+
 
 export const obtenerListaPublica = async (req, res, next) => {
   try {
