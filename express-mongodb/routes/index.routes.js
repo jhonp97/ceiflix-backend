@@ -1,10 +1,8 @@
+import express from "express";
+import { authMiddleware } from "../middleware/authMiddleware.js";
+import { getWatchedMovies } from "../controllers/movie.controller.js";
 
-import { Router } from "express"
+const router = express.Router();
 
-
-
-export const router = Router()
-
-//CRUD
-
+router.get("/mylist", authMiddleware, getWatchedMovies);
 
