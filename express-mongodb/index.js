@@ -1,11 +1,11 @@
 import express from "express"
 import 'dotenv/config';
 import cors from "cors"
-import { DOMAIN, PORT } from "./config/config.js"
+ import { DOMAIN, port } from "./config/config.js"
 import { router } from "./routes/index.routes.js"
+import { errorHandler, notFoundHandler } from "./middleware/error.middleware.js";
 
-
-// import { conectarDB } from "./db/mongoose.js"
+ import { conectarDB } from "./db/mongoose.js"
 
 const app= express()
 
@@ -18,11 +18,11 @@ app.use("/", express.static("public"))
 
 
 // llamar a la funcion  de conexion de Mongoose
-// conectarDB()
+ conectarDB()
 
-//ruta por fedecto
+//ruta por defecto
 app.get("/", (req, res)=>{
-    res.status(200).json({msg:"bienvenidos a mi api MongoDB"})
+    res.status(200).json({msg:"bienvenidos a mi api CEIFLIX  con MongoDB"})
 })
 
 // rutas
@@ -30,9 +30,9 @@ app.use("/api/v1", router);
 
 
 // middlewares de manejo de errores
-// app.use(notFoundHandler)
-// app.use(errorHandler)
+ app.use(notFoundHandler)
+ app.use(errorHandler)
 
-app.listen(PORT,()=>{
-    console.log(`mi servidor se esta ejecutando correctamente en ${DOMAIN}:${PORT}`)
+app.listen(port,()=>{
+    console.log(`mi servidor se esta ejecutando correctamente en ${DOMAIN}:${port}`)
 })
