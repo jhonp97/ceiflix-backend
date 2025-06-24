@@ -1,5 +1,5 @@
 
-import { WatchedMovie } from "../models/WatchedMovie.js";
+import { WatchedMovie } from "../db/models/watchedMovie.js";
 
 // aquines para agregar las peliculas vistas
 export const agregarPeliculaVista = async (req, res, next) => {

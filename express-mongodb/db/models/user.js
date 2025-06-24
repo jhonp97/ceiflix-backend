@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const options = {
-    collection: "authusers", // nombre de la coleccion en MongoDB
+    collection: "users", // nombre de la coleccion en MongoDB
     strict: true, // solo permite guardar los campor definidos en el eschema 
     collation: {
         locale: "es", // idioma de la coleccion

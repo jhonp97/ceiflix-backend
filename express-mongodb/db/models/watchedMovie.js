@@ -1,7 +1,7 @@
-// /models/WatchedMovie.js
+
 import mongoose from "mongoose";
 const options = {
-    collection: "authusers", // nombre de la coleccion en MongoDB
+    collection: "watchedmovies", // nombre de la coleccion en MongoDB
     strict: true, // solo permite guardar los campor definidos en el eschema 
     collation: {
         locale: "es", // idioma de la coleccion

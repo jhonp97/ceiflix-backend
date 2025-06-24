@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { DOMAIN, port, jwtSecret, mongoURI, tmdbKey, tmdbAccessToken} from "../config/config.js";
 
 export const conectarDB = async () => {
-    const url = `${mongoURI}}`;
+    const url = mongoURI;
   try {
     await mongoose.connect(url);
     console.log(" Conexión a MongoDB compass exitosa");

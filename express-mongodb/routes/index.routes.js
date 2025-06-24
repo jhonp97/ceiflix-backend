@@ -1,12 +1,38 @@
+
 import express from "express";
-import { authMiddleware } from "../middleware/authMiddleware.js";
-import { getWatchedMovies } from "../controllers/movie.controller.js";
-import movieRoutes from "./movies.routes.js";
+import { authMiddleware } from "../middleware/auth.middleware.js";
+
+// Controladores de autenticacion
+import {
+  loginUser,
+  registerUser,
+  getCurrentUser
+} from "../controllers/auth.controller.js";
+
+// Controladores de peliculas
+import {
+  agregarPeliculaVista,
+  obtenerPeliculasVistas,
+  calificarPelicula,
+  obtenerListaPublica
+} from "../controllers/movie.controller.js";
 
 const router = express.Router();
 
-router.get("/mylist", authMiddleware, getWatchedMovies);
-router.use("/auth", authRoutes);
-router.use("/peliculas", movieRoutes);
+
+//  AUTENTICACIÓN
+router.post("/auth/register", registerUser);
+router.post("/auth/login", loginUser);
+router.get("/auth/me", authMiddleware, getCurrentUser);
+
+
+//  PELÍCULAS - RUTAS PROTEGIDAS
+router.get("/peliculas/mis-peliculas", authMiddleware, obtenerPeliculasVistas);
+router.post("/peliculas/agregar", authMiddleware, agregarPeliculaVista);
+router.patch("/peliculas/calificar/:id", authMiddleware, calificarPelicula);
+
+
+//  PELÍCULAS - RUTAS PÚBLICAS
+router.get("/peliculas/publica/:username", obtenerListaPublica);
 
 export { router };
