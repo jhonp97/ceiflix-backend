@@ -17,6 +17,9 @@ import {
   obtenerListaPublica
 } from "../controllers/movie.controller.js";
 
+import tmdbRoutes from "./tmdb.routes.js";
+
+
 const router = express.Router();
 
 
@@ -24,6 +27,10 @@ const router = express.Router();
 router.post("/auth/register", registerUser);
 router.post("/auth/login", loginUser);
 router.get("/auth/me", authMiddleware, getCurrentUser);
+
+
+//PELICULAS RUTA BASE API
+router.use("/tmdb", tmdbRoutes); 
 
 
 //  PELÍCULAS - RUTAS PROTEGIDAS
