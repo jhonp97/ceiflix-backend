@@ -4,6 +4,7 @@ import { DOMAIN, port, jwtSecret, mongoURI, tmdbKey, tmdbAccessToken} from "../c
 
 export const conectarDB = async () => {
     const url = mongoURI;
+    console.log(url)
   try {
     await mongoose.connect(url);
     console.log(" Conexión a MongoDB compass exitosa");
